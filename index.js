@@ -36,3 +36,4 @@ async function drawACard(deckId, number) {
   const card = await fetch(CARD_URL);
   return card;
 }
+
