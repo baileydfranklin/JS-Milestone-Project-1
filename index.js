@@ -1,27 +1,35 @@
 const DECK_URL =
   "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
 
-const button = document.querySelector("#test-2");
+const shuffleButton = document.querySelector("#shuffleButton")
+const dealButton = document.querySelector("#dealButton");
 const player1 = document.querySelector("#player-1-conainer");
-input.addEventListener("input", () => {});
 
-button.addEventListener("click", async () => {
+/////     SHUFFLE DECK     /////
+shuffleButton.addEventListener("click", async () => {
+  const deck = await shuffled();
+  const deckData = await deck.json();
+  const { deck_id } = deckData;
+/////     SHUFFLE DECK     /////
 
-    const deck = await shuffled();
-    const deckData = await deck.json();
-    const { deck_id } = deckData;
-    const card = await drawACard(deck_id, 2);
-    const cardData = await card.json();
-    const { cards } = cardData;
-    const card1 = cards[0];
+/////     DRAW CARDS     /////
+dealButton.addEventListener("click", async () => {
 
-    const img = document.createElement("img");
-    img.setAttribute("src", card1.images.svg);
-    console.log({ img, card1 });
-    player1.append(img);
-    console.log({ cardData });
-  }
-});
+  const card = await drawACard(deck_id, 2);
+  const cardData = await card.json();
+  const { cards } = cardData;
+  const card1 = cards[0];
+/////     DRAW CARDS     /////
+
+/////     DISPLAY CARDS     /////
+  const img = document.createElement("img");
+  img.setAttribute("src", card1.images.svg);
+  console.log({ img, card1 });
+  player1.append(img);
+  console.log({ cardData });
+/////     DISPLAY CARDS     /////
+})
+})
 
 async function shuffled() {
   const deck = await fetch(DECK_URL);
