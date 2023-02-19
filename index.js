@@ -1,10 +1,9 @@
-//Use this URL for the API: https://www.deckofcardsapi.com/
-
 const DECK_URL =
   "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
 
-const button = document.querySelector("#dealButton");
+const button = document.querySelector("#test-2");
 const player1 = document.querySelector("#player-1-conainer");
+input.addEventListener("input", () => {});
 
 button.addEventListener("click", async () => {
 
@@ -21,6 +20,7 @@ button.addEventListener("click", async () => {
     console.log({ img, card1 });
     player1.append(img);
     console.log({ cardData });
+  }
 });
 
 async function shuffled() {
@@ -29,6 +29,7 @@ async function shuffled() {
 }
 
 async function drawACard(deckId, number) {
+
   const CARD_URL = `https://www.deckofcardsapi.com/api/deck/${deckId}/draw/?count=${number}`;
   const card = await fetch(CARD_URL);
   return card;
