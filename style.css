@@ -1,0 +1,14 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-image: linear-gradient(#6E470B,green, #6E470B);
+}
+
+h1{
+    text-align: center;
+}
+
+#dealButtonDiv{
+    text-align: center;
+}
